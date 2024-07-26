@@ -21,7 +21,7 @@ const usuarios = [
     },
   ];
   
-  const buscarDonoPet = (lista: { nome: string, pets: string[]}[], nomePet: string) => {
+  const buscarDonoPet = (lista: { nome: string, pets: string[]}[], nomePet: string): string => {
     let usuarioEncontrado;
   
     for (const usuario of lista) {
@@ -31,10 +31,10 @@ const usuarios = [
     }
   
     if (usuarioEncontrado) {
-        console.log(`O dono(a) do(a) ${nomePet} é o(a) ${usuarioEncontrado.nome}`);
+        return `O dono(a) do(a) ${nomePet} é o(a) ${usuarioEncontrado.nome}`;
     } else {
-        console.log(`Que pena ${nomePet}, não encontramos seu dono(a)`);
+        return `Que pena ${nomePet}, não encontramos seu dono(a)`;
     }
   }
   
-  buscarDonoPet(usuarios, 'Guido');
+  console.log(buscarDonoPet(usuarios, 'Guido'));
