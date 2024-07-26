@@ -31,7 +31,7 @@ const users = [
   },
 ]
 
-const filterUsers = (usersList: { nome: string, idade: number, status: boolean }[], nameFilter: string) => {
+const filterUsers = (usersList: { nome: string, idade: number, status: boolean }[], nameFilter: string): object[] => {
   let filteredUsers: { nome: string, idade: number, status: boolean }[] = [];
 
   usersList.forEach(user => {
