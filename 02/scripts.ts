@@ -1,3 +1,22 @@
+const filterUsers = (
+  usersList: { 
+    nome: string, 
+    idade: number, 
+    status: boolean 
+  }[], 
+  nameFilter: string
+): {
+    nome: string, 
+    idade: number, 
+    status: boolean
+}[] => {
+  const filteredUsers = usersList.filter((user) => {
+    return user.nome.toLowerCase().includes(nameFilter.toLowerCase());
+  })
+
+  return filteredUsers;
+}
+
 const users = [
   {
       nome: "Guido",
@@ -30,27 +49,5 @@ const users = [
       status: false,
   },
 ]
-
-const filterUsers = (usersList: { nome: string, idade: number, status: boolean }[], nameFilter: string): object[] => {
-  let filteredUsers: { nome: string, idade: number, status: boolean }[] = [];
-
-  usersList.forEach(user => {
-    let usernameMatchesFilter: boolean = true;
-    
-    for(let i = 0; i < nameFilter.length - 1; i++) {
-      if (user.nome[i].toLowerCase() !== nameFilter[i].toLowerCase()) {
-        usernameMatchesFilter = false;
-        break;
-      }
-    }
-
-    if (usernameMatchesFilter === true) {
-      filteredUsers.push(user);
-    }
-  });
-
-
-  return filteredUsers;
-}
 
 console.log(filterUsers(users, 'Jo'));
